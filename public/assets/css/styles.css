@@ -38,6 +38,12 @@ html, body {
   color: #757575;
 }
 
+.note-date {
+  height: 30px;
+  margin-top: 13px;
+  font-size: 18px;
+}
+
 .list-container .card {
   height: calc(100vh - 70px);
   border-bottom: none;

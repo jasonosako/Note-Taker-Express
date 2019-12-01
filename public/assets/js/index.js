@@ -1,4 +1,5 @@
 var $noteTitle = $(".note-title");
+var $noteDate = $(".note-date");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
@@ -38,6 +39,7 @@ var renderActiveNote = function() {
   console.log(activeNote);
 
   $noteTitle.val(activeNote.title);
+  $noteDate.val(activeNote.date);
   $noteText.val(activeNote.text);
 };
 
@@ -45,6 +47,7 @@ var renderActiveNote = function() {
 var handleNoteSave = function() {
   var newNote = {
     title: $noteTitle.val(),
+    date: $noteDate.val(),
     text: $noteText.val()
   };
 
@@ -73,6 +76,12 @@ var handleNoteDelete = function(event) {
     getAndRenderNotes();
     renderActiveNote();
   });
+
+  deleteNote(note.date).then(function() {
+    getAndRenderNotes();
+    renderActiveNote();
+  });
+
 };
 
 // Sets the activeNote and displays it
